@@ -11,8 +11,6 @@ export default function Experience() {
     const currentExperience = experiences.filter(exp => exp.current)
     const previousExperience = experiences.filter(exp => !exp.current)
 
-    
-
     return (
         <div className="p-5">
             <AnimatedHeader fullText="Work Experience" speed={50} />

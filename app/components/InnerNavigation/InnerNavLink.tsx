@@ -1,18 +1,26 @@
 import Link from "next/link"
 
-const InnerNavLink = ({
-    href,
-    isActive,
-    children,
-}: {
-    href: string,
-    isActive: boolean,
+interface InnerNavLinkProps {
+    href: string
+    isActive: boolean
     children: React.ReactNode
-}) => {
+    onClick?: () => void
+    className?: string
+}
+
+const InnerNavLink = ({ href, isActive, children, onClick, className = "" }: InnerNavLinkProps) => {
     return (
-        <Link
+        <Link 
             href={href}
-            className={`p-3 text-sm border-line ${isActive ? "border border-b-0 bg-background border-t-blue-500" : ""} hover:bg-gray-800`}
+            onClick={onClick}
+            className={`
+                px-4 py-2 text-sm whitespace-nowrap border-b-2 transition-colors
+                ${isActive 
+                    ? "border-blue-500 text-white bg-gray-700" 
+                    : "border-transparent text-gray-400 hover:text-white hover:bg-gray-700"
+                }
+                ${className}
+            `}
         >
             {children}
         </Link>

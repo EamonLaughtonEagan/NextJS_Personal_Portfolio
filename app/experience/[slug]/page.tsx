@@ -1,6 +1,6 @@
 "use client"
 
-import { use } from "react"
+import { use, useEffect, useRef, useState } from "react"
 import { experiences } from "@/constants/experience/experience.properties"
 import { notFound } from "next/navigation"
 import Card from "@/app/components/Card"
@@ -8,8 +8,9 @@ import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react"
 import { AnimatedHeader } from "@/app/components/AnimatedHeader"
 
 export default function ExperienceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-    // Unwrap the params Promise
     const { slug } = use(params)
+    const codeRef = useRef<HTMLDivElement>(null)
+    const [lineCount, setLineCount] = useState(0)
     
     // Find the experience that matches the slug
     const experience = experiences.find(
@@ -44,7 +45,7 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
         })
 
         lines.push({ indent: 1, content: <span>{']'}</span> })
-        lines.push({ indent: 0, content: <span>{'}'}<span className="text-white"></span></span> })
+        lines.push({ indent: 0, content: <span>{'}'}<span className="text-white">;</span></span> })
 
         return lines
     }
@@ -52,63 +53,106 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
     const codeLines = generateExperienceCodeLines(experience)
     const isCurrent = experience.current
 
-    return (
-        <Card 
-            className={`font-mono text-sm ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'bg-[#1e1e1e]'}`}
-        >
-            {/* Header Section */}
-            <div className="mb-4 pb-4 border-b border-line font-sans">
-                <div className="flex items-start justify-between mb-2">
-                    <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                            <h2 className="text-2xl font-bold text-white">{experience.title}</h2>
-                            {isCurrent && (
-                                <span className="flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold">
-                                    <CheckCircle2 size={12} />
-                                    Current
-                                </span>
-                            )}
-                        </div>
-                        <div className="flex items-center gap-4 text-gray-400">
-                            <div className="flex items-center gap-2">
-                                <Briefcase size={16} />
-                                <span>{experience.company}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <MapPin size={16} />
-                                <span>{experience.location}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-400">
-                        <Calendar size={16} />
-                        <span className="text-sm">
-                            {experience.start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {' '}
-                            {typeof experience.finish === 'string' ? experience.finish : experience.finish.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                        </span>
-                    </div>
-                </div>
-            </div>
+    // Calculate actual line count based on rendered height
+    useEffect(() => {
+        const calculateLineCount = () => {
+            if (codeRef.current) {
+                const lineHeight = 24 // leading-6 = 1.5rem = 24px
+                const totalHeight = codeRef.current.scrollHeight
+                const lines = Math.ceil(totalHeight / lineHeight)
+                setLineCount(lines)
+            }
+        }
 
-            {/* Code Section */}
-            <div className="flex">
-                <div className="text-gray-600 select-none pr-4 border-r border-line mr-4 text-right min-w-12">
-                    {codeLines.map((_, j) => (
-                        <div key={j} className="leading-6">
-                            {j + 1}
+        // Small delay to ensure DOM is updated
+        const timer = setTimeout(calculateLineCount, 0)
+        
+        // Recalculate on window resize with debounce
+        let resizeTimer: NodeJS.Timeout
+        const handleResize = () => {
+            clearTimeout(resizeTimer)
+            resizeTimer = setTimeout(calculateLineCount, 100)
+        }
+        
+        window.addEventListener('resize', handleResize)
+        
+        // Use ResizeObserver for more accurate tracking
+        const resizeObserver = new ResizeObserver(() => {
+            calculateLineCount()
+        })
+        
+        if (codeRef.current) {
+            resizeObserver.observe(codeRef.current)
+        }
+
+        return () => {
+            clearTimeout(timer)
+            clearTimeout(resizeTimer)
+            window.removeEventListener('resize', handleResize)
+            resizeObserver.disconnect()
+        }
+    }, [experience, slug]) // Added slug dependency
+
+    return (
+        <div>
+            <AnimatedHeader fullText={experience.title} speed={50} />
+            <Card 
+                className={`font-mono text-xs sm:text-sm ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'bg-[#1e1e1e]'}`}
+            >
+                {/* Header Section */}
+                <div className="mb-4 pb-4 border-b border-line font-sans">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2">
+                        <div className="flex-1">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                                <h2 className="text-xl sm:text-2xl font-bold text-white">{experience.title}</h2>
+                                {isCurrent && (
+                                    <span className="flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold w-fit">
+                                        <CheckCircle2 size={12} />
+                                        Current
+                                    </span>
+                                )}
+                            </div>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-400 text-sm">
+                                <div className="flex items-center gap-2">
+                                    <Briefcase size={16} />
+                                    <span>{experience.company}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <MapPin size={16} />
+                                    <span>{experience.location}</span>
+                                </div>
+                            </div>
                         </div>
-                    ))}
-                </div>
-                <div className="flex-1">
-                    {codeLines.map((line, j) => (
-                        <div key={j} className="leading-6 relative">
-                            <span style={{ paddingLeft: `${line.indent * 1.5}rem` }}>
-                                {line.content}
+                        <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
+                            <Calendar size={16} />
+                            <span>
+                                {experience.start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {' '}
+                                {typeof experience.finish === 'string' ? experience.finish : experience.finish.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
                             </span>
                         </div>
-                    ))}
+                    </div>
                 </div>
-            </div>
-        </Card>
+
+                {/* Code Section */}
+                <div className="flex">
+                    <div className="text-gray-600 select-none pr-2 sm:pr-4 border-r border-line mr-2 sm:mr-4 text-right min-w-8 sm:min-w-12 shrink-0">
+                        {Array.from({ length: lineCount || codeLines.length }, (_, i) => (
+                            <div key={i} className="leading-6">
+                                {i + 1}
+                            </div>
+                        ))}
+                    </div>
+                    <div ref={codeRef} className="flex-1 min-w-0">
+                        {codeLines.map((line, j) => (
+                            <div key={j} className="leading-6">
+                                <span style={{ paddingLeft: `${line.indent * 1.5}rem` }}>
+                                    {line.content}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Card>
+        </div>
     )
 }

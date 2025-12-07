@@ -54,7 +54,9 @@ const Search = () => {
             >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span className="text-gray-400">Portfolio [Eamon Laughton-Eagan]</span>
+            <span className="text-gray-400 text-sm truncate max-w-[150px] sm:max-w-none">
+              Portfolio [Eamon Laughton-Eagan]
+            </span>
         </button>
       {isOpen && (
         <div className="absolute top-full left-0 right-0 border-t-0 rounded-t-none bg-sidebar border border-line rounded-sm shadow-lg z-10">

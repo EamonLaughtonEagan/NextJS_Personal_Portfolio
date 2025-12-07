@@ -177,7 +177,7 @@ export const AccordionItem = ({
   }, [])
 
   return (
-    <li {...props}>
+    <div {...props}>
       <Link 
         href={fullPath} 
         onClick={handleClick}
@@ -231,7 +231,7 @@ export const AccordionItem = ({
           </div>
         </div>
       )}
-    </li>
+    </div>
   )
 }
 
@@ -278,7 +278,7 @@ export const AccordionContent = ({
       onMouseLeave={onMouseLeave}
       className={`flex items-center gap-1 px-2 py-1 hover:bg-[#2a2d2e] text-sm text-gray-300 ${className}`}
     >
-      <span className="w-4" />
+      <span className="w-4 not-even:text-gray-400 text-sm truncate max-w-[150px] sm:max-w-none"/>
       <FileCode size={16} className="text-gray-400" />
       {children}
     </Link>
