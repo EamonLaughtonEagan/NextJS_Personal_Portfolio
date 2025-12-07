@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1f1f1f;
+  --foreground: #ededed;
 }
 
 @theme {
@@ -17,13 +17,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1f1f1f;
-    --foreground: #ededed;
-  }
 }
 
 @keyframes fadeInUp {
@@ -49,9 +42,13 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #1f1f1f;
+  color: #ededed;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  background: #1f1f1f;
 }
 
 /* Scrollbar Styling */
