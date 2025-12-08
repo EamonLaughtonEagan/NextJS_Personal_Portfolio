@@ -33,7 +33,7 @@ const hobbies: Hobby[] = [
 
 const generateHobbyCodeLines = (hobby: Hobby) => {
     const lines = [
-        { indent: 0, content: <span><span className="text-purple-400">const</span> <span className="text-blue-300">{hobby.name.toLowerCase().replace(/\s+/g, '')}</span> <span className="text-white">=</span> {'{'}</span> },
+        { indent: 0, content: <span><span style={{ color: 'var(--color-syntax-keyword)' }}>const</span> <span className="text-blue-300">{hobby.name.toLowerCase().replace(/\s+/g, '')}</span> <span className="text-white">=</span> {'{'}</span> },
         { indent: 1, content: <span><span className="text-blue-300">name</span><span className="text-white">:</span> <span className="text-green-300">"{hobby.name}"</span><span className="text-white">,</span></span> },
         { indent: 1, content: <span><span className="text-blue-300">description</span><span className="text-white">:</span> <span className="text-green-300">"{hobby.description}"</span><span className="text-white">,</span></span> },
         { indent: 1, content: <span><span className="text-blue-300">frequency</span><span className="text-white">:</span> <span className="text-green-300">"{hobby.frequency}"</span><span className="text-white">,</span></span> },

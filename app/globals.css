@@ -1,20 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1f1f1f;
-  --foreground: #ededed;
+  /* Default dark theme */
+  --color-background: #1f1f1f;
+  --color-foreground: #ededed;
+  --color-sidebar: #181818;
+  --color-line: #37373d;
+  --color-highlight: #4ade80;
+  --color-card: #1e1e1e;
+  --color-cardHover: #2a2d2e;
+  
+  /* Syntax colors */
+  --color-syntax-keyword: #c678dd;
+  --color-syntax-variable: #61afef;
+  --color-syntax-string: #98c379;
+  --color-syntax-boolean: #e5c07b;
+  --color-syntax-comment: #5c6370;
 }
 
 @theme {
-  --color-sidebar: #181818;
-  --color-background: #1f1f1f;
-  --color-line: #37373d;
-  --color-highlight: #4ade80;
+  --color-sidebar: var(--color-sidebar);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-line: var(--color-line);
+  --color-highlight: var(--color-highlight);
+  --color-card: var(--color-card);
+  --color-cardHover: var(--color-cardHover);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -42,13 +56,13 @@
 }
 
 body {
-  background: #1f1f1f;
-  color: #ededed;
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
-  background: #1f1f1f;
+  background: var(--color-background);
 }
 
 /* Scrollbar Styling */

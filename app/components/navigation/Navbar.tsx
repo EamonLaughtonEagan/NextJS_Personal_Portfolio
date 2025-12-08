@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import NavLink from "./NavLink"
 import Search from "./Search"
 import { Minus, Square, X, Menu, Code2 } from "lucide-react"
+import ThemeSwitcher from "../ThemeSwitcher"
 
 const Navbar = () => {
     const navLinks = [
@@ -27,7 +28,7 @@ const Navbar = () => {
             </div>
 
             <Search />
-
+            <ThemeSwitcher />
 
             {/* Right section - Search and Window Controls */}
             <div className="flex items-center gap-4">

@@ -67,7 +67,6 @@ export default function Experience() {
                         )}
                     </div>
                 </Card>
-
             </div>
 
             {/* Experience Categories */}

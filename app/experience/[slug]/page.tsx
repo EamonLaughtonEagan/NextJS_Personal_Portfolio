@@ -5,7 +5,6 @@ import { experiences } from "@/constants/experience/experience.properties"
 import { notFound } from "next/navigation"
 import Card from "@/app/components/Card"
 import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react"
-import { AnimatedHeader } from "@/app/components/AnimatedHeader"
 
 export default function ExperienceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params)
@@ -27,8 +26,8 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
 
     const generateExperienceCodeLines = (experience: typeof experiences[0]) => {
         const lines = [
-            { indent: 0, content: <span><span className="text-purple-400">const</span> <span className="text-blue-300">position</span> <span className="text-white">=</span> {'{'}</span> },
-            { indent: 1, content: <span><span className="text-blue-300">title</span><span className="text-white">:</span> <span className="text-green-300">"{experience.title}"</span><span className="text-white">,</span></span> },
+            { indent: 0, content: <span><span style={{ color: 'var(--color-syntax-keyword)' }}>const</span> <span style={{ color: 'var(--color-syntax-variable)' }}>position</span> <span className="text-white">=</span> {'{'}</span> },
+            { indent: 1, content: <span><span className="text-blue-300">title</span><span className="text-white">:</span> <span style={{ color: 'var(--color-syntax-string)' }}>"{experience.title}"</span><span className="text-white">,</span></span> },
             { indent: 1, content: <span><span className="text-blue-300">company</span><span className="text-white">:</span> <span className="text-green-300">"{experience.company}"</span><span className="text-white">,</span></span> },
             { indent: 1, content: <span><span className="text-blue-300">location</span><span className="text-white">:</span> <span className="text-green-300">"{experience.location}"</span><span className="text-white">,</span></span> },
             { indent: 1, content: <span><span className="text-blue-300">period</span><span className="text-white">:</span> <span className="text-green-300">"{experience.start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {typeof experience.finish === 'string' ? experience.finish : experience.finish.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}"</span><span className="text-white">,</span></span> },
@@ -94,65 +93,62 @@ export default function ExperienceDetailPage({ params }: { params: Promise<{ slu
     }, [experience, slug]) // Added slug dependency
 
     return (
-        <div>
-            <AnimatedHeader fullText={experience.title} speed={50} />
-            <Card 
-                className={`font-mono text-xs sm:text-sm ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'bg-[#1e1e1e]'}`}
-            >
-                {/* Header Section */}
-                <div className="mb-4 pb-4 border-b border-line font-sans">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2">
-                        <div className="flex-1">
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                                <h2 className="text-xl sm:text-2xl font-bold text-white">{experience.title}</h2>
-                                {isCurrent && (
-                                    <span className="flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold w-fit">
-                                        <CheckCircle2 size={12} />
-                                        Current
-                                    </span>
-                                )}
+        <Card 
+            className={`font-mono text-xs sm:text-sm ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'bg-[#1e1e1e]'}`}
+        >
+            {/* Header Section */}
+            <div className="mb-4 pb-4 border-b border-line font-sans">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-2">
+                    <div className="flex-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                            <h2 className="text-xl sm:text-2xl font-bold text-white">{experience.title}</h2>
+                            {isCurrent && (
+                                <span className="flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-semibold w-fit">
+                                    <CheckCircle2 size={12} />
+                                    Current
+                                </span>
+                            )}
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-400 text-sm">
+                            <div className="flex items-center gap-2">
+                                <Briefcase size={16} />
+                                <span>{experience.company}</span>
                             </div>
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-400 text-sm">
-                                <div className="flex items-center gap-2">
-                                    <Briefcase size={16} />
-                                    <span>{experience.company}</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <MapPin size={16} />
-                                    <span>{experience.location}</span>
-                                </div>
+                            <div className="flex items-center gap-2">
+                                <MapPin size={16} />
+                                <span>{experience.location}</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
-                            <Calendar size={16} />
-                            <span>
-                                {experience.start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {' '}
-                                {typeof experience.finish === 'string' ? experience.finish : experience.finish.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
+                        <Calendar size={16} />
+                        <span>
+                            {experience.start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })} - {' '}
+                            {typeof experience.finish === 'string' ? experience.finish : experience.finish.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Code Section */}
+            <div className="flex">
+                <div className="text-gray-600 select-none pr-2 sm:pr-4 border-r border-line mr-2 sm:mr-4 text-right min-w-8 sm:min-w-12 shrink-0">
+                    {Array.from({ length: lineCount || codeLines.length }, (_, i) => (
+                        <div key={i} className="leading-6">
+                            {i + 1}
+                        </div>
+                    ))}
+                </div>
+                <div ref={codeRef} className="flex-1 min-w-0">
+                    {codeLines.map((line, j) => (
+                        <div key={j} className="leading-6">
+                            <span style={{ paddingLeft: `${line.indent * 1.5}rem` }}>
+                                {line.content}
                             </span>
                         </div>
-                    </div>
+                    ))}
                 </div>
-
-                {/* Code Section */}
-                <div className="flex">
-                    <div className="text-gray-600 select-none pr-2 sm:pr-4 border-r border-line mr-2 sm:mr-4 text-right min-w-8 sm:min-w-12 shrink-0">
-                        {Array.from({ length: lineCount || codeLines.length }, (_, i) => (
-                            <div key={i} className="leading-6">
-                                {i + 1}
-                            </div>
-                        ))}
-                    </div>
-                    <div ref={codeRef} className="flex-1 min-w-0">
-                        {codeLines.map((line, j) => (
-                            <div key={j} className="leading-6">
-                                <span style={{ paddingLeft: `${line.indent * 1.5}rem` }}>
-                                    {line.content}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </Card>
-        </div>
+            </div>
+        </Card>
     )
 }

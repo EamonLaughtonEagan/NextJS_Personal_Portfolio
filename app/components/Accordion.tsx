@@ -206,11 +206,11 @@ export const AccordionItem = ({
               <Folder size={16} className="text-blue-400" />
             )
           ) : (
-            <FileCode size={16} className="text-gray-400" />
+            <FileCode size={16} className="text-foreground" />
           )}
         </div>
         
-        <span className="text-gray-200 flex-1">{trigger}</span>
+        <span className="text-foreground flex-1">{trigger}</span>
       </Link>
       
       {children && (
@@ -276,10 +276,10 @@ export const AccordionContent = ({
       onClick={handleClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={`flex items-center gap-1 px-2 py-1 hover:bg-[#2a2d2e] text-sm text-gray-300 ${className}`}
+      className={`flex items-center gap-1 px-2 py-1 hover:bg-[#2a2d2e] text-foreground text-sm ${className}`}
     >
       <span className="w-4 not-even:text-gray-400 text-sm truncate max-w-[150px] sm:max-w-none"/>
-      <FileCode size={16} className="text-gray-400" />
+      <FileCode size={16} className="text-foreground/50" />
       {children}
     </Link>
   )

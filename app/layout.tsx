@@ -5,6 +5,7 @@ import Navbar from "./components/navigation/Navbar";
 import LeftSidebar from "./components/navigation/LeftSidebar";
 import RightSidebar from "./components/navigation/RightSidebar";
 import ClientLayout from "./components/ClientLayout";
+import { ThemeProvider } from "./contexts/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen overflow-hidden">
-        <ClientLayout>{children}</ClientLayout>
+        <ThemeProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
