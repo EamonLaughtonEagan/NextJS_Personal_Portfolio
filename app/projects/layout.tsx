@@ -53,6 +53,8 @@ export const generateCodeLines = (project: ProjectP) => {
         { indent: 1, content: <>]</> },
         { indent: 1, content: <><span className="text-blue-300">completed</span>: <span className="text-purple-400">{project.completed.toString()}</span></> },
         { indent: 1, content: <><span className="text-blue-300">startDate</span>: <span className="text-green-400">{project.startDate ? `new Date("${project.startDate.toISOString().split('T')[0]}")` : 'undefined'}</span></> },
+        { indent: 1, content: <><span className="text-blue-300">githubUrl</span>: <a className="text-blue-400" href={project.githubUrl} target="_blank" rel="noopener noreferrer">{project.githubUrl ? `"${project.githubUrl}"` : 'undefined'}</a></> },
+        { indent: 1, content: <><span className="text-blue-300">liveUrl</span>: <a className="text-blue-400" href={project.liveUrl} target="_blank" rel="noopener noreferrer">{project.liveUrl ? `"${project.liveUrl}"` : 'undefined'}</a></> },
         { indent: 0, content: <>{'}'}</> },
     ];
     return lines
