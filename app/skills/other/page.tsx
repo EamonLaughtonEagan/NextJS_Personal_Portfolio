@@ -16,7 +16,7 @@ export default function OtherSkills() {
             </p>
 
             {/* Skills Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                 <Card className="group cursor-default">
                     <div className="flex items-center gap-4">
                         <div className="p-3 bg-blue-500/10 rounded-lg">
@@ -37,18 +37,6 @@ export default function OtherSkills() {
                         <div>
                             <h3 className="text-3xl font-bold text-white">{otherSkills.length}</h3>
                             <p className="text-gray-400 text-sm">Skill Categories</p>
-                        </div>
-                    </div>
-                </Card>
-
-                <Card className="group cursor-default">
-                    <div className="flex items-center gap-4">
-                        <div className="p-3 bg-green-500/10 rounded-lg">
-                            <TrendingUp size={24} className="text-green-400" />
-                        </div>
-                        <div>
-                            <h3 className="text-3xl font-bold text-white">10+</h3>
-                            <p className="text-gray-400 text-sm">Years Experience</p>
                         </div>
                     </div>
                 </Card>
