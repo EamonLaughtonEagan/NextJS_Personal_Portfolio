@@ -181,7 +181,7 @@ export const AccordionItem = ({
       <Link 
         href={fullPath} 
         onClick={handleClick}
-        className={`flex items-center gap-1 px-2 py-1 hover:bg-[#2a2d2e] cursor-pointer text-sm ${
+        className={`flex items-center gap-1 px-2 py-1 hover:bg-cardHover cursor-pointer text-sm ${
           isActive ? "bg-line" : ""
         }`}
       >

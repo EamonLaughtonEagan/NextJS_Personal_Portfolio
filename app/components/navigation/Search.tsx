@@ -44,17 +44,17 @@ const Search = () => {
     <div ref={dropdownRef} className="relative col-span-2 w-1/2">
         <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`w-full h-8 border border-line rounded-sm text-sm px-3 py-2 bg-background hover:bg-gray-950 transition-colors flex items-center justify-center cursor-pointer gap-2 ${isOpen ? "rounded-b-none border-b-0" : "rounded-sm"}`}
+            className={`w-full h-8 border border-line rounded-sm text-sm px-3 py-2 bg-background hover:bg-cardHover transition-colors flex items-center justify-center cursor-pointer gap-2 ${isOpen ? "rounded-b-none border-b-0" : "rounded-sm"}`}
         >
             <svg
-              className="w-4 h-4 text-gray-400"
+              className="w-4 h-4 text-foreground/60"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span className="text-gray-400 text-sm truncate max-w-[150px] sm:max-w-none">
+            <span className="text-foreground/60 text-sm truncate max-w-[150px] sm:max-w-none">
               Portfolio [Eamon Laughton-Eagan]
             </span>
         </button>
@@ -67,7 +67,7 @@ const Search = () => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Type to search..."
-              className="w-full border border-gray-500 rounded-sm text-sm px-3 py-2 bg-transparent text-white focus:outline-none  cursor-pointer focus:border-blue-500"
+              className="w-full border border-gray-500 rounded-sm text-sm px-3 py-2 bg-transparent text-foreground focus:outline-none  cursor-pointer focus:border-blue-500"
             />
           </div>
             <div className="max-h-80 overflow-y-auto flex flex-col">
@@ -81,7 +81,7 @@ const Search = () => {
                         setSearchValue("")
 
                         }}
-                        className="w-full px-3 py-2 text-left text-sm text-white hover:bg-gray-700 transition-colors cursor-pointer"
+                        className="w-full px-3 py-2 text-left text-sm text-foreground hover:bg-cardHover transition-colors cursor-pointer"
                         >
                         {item}
                         </Link>

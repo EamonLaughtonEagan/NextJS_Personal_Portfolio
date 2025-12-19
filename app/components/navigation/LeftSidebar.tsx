@@ -65,7 +65,7 @@ const LeftSidebar = () => {
 
     return (
         <div className="flex flex-col h-full border-r border-r-line overflow-y-auto">
-            <div className="px-4 py-2 text-xs uppercase text-gray-400 font-semibold tracking-wider">
+            <div className="px-4 py-2 text-xs uppercase text-foreground/60 font-semibold tracking-wider">
                 Explorer
             </div>
             <Accordion multipleOpen={false} defaultOpen={[]}>

@@ -16,7 +16,7 @@ export default function Skills() {
     return (
         <div className="p-5">
             <AnimatedHeader fullText="My Skills" speed={50} />
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-foreground/60 mb-12">
                 An overview of my technical and soft skills developed through 5+ years of professional experience.
             </p>
 
@@ -28,8 +28,8 @@ export default function Skills() {
                             <Award size={24} className="text-blue-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{totalSkills}+</h3>
-                            <p className="text-gray-400 text-sm">Total Skills</p>
+                            <h3 className="text-3xl font-bold text-foreground">{totalSkills}+</h3>
+                            <p className="text-foreground/60 text-sm">Total Skills</p>
                         </div>
                     </div>
                 </Card>
@@ -40,8 +40,8 @@ export default function Skills() {
                             <Layers size={24} className="text-purple-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{totalCategories}</h3>
-                            <p className="text-gray-400 text-sm">Skill Categories</p>
+                            <h3 className="text-3xl font-bold text-foreground">{totalCategories}</h3>
+                            <p className="text-foreground/60 text-sm">Skill Categories</p>
                         </div>
                     </div>
                 </Card>
@@ -79,11 +79,11 @@ export default function Skills() {
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
                                 <Code2 size={24} className="text-blue-400" />
-                                <h2 className="text-2xl font-bold text-white">Technical Skills</h2>
+                                <h2 className="text-2xl font-bold text-foreground">Technical Skills</h2>
                             </div>
-                            <ArrowRight size={20} className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                            <ArrowRight size={20} className="text-foreground/60 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                         </div>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-foreground/60 mb-4">
                             {totalTechnicalSkills} technical skills across {technicalSkills.length} categories including frontend, backend, databases, and more.
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -93,7 +93,7 @@ export default function Skills() {
                                 </span>
                             ))}
                             {technicalSkills.length > 3 && (
-                                <span className="px-3 py-1 bg-gray-700 text-gray-400 rounded-full text-sm">
+                                <span className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">
                                     +{technicalSkills.length - 3} more
                                 </span>
                             )}
@@ -107,11 +107,11 @@ export default function Skills() {
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
                                 <Users size={24} className="text-green-400" />
-                                <h2 className="text-2xl font-bold text-white">Soft Skills</h2>
+                                <h2 className="text-2xl font-bold text-foreground">Soft Skills</h2>
                             </div>
-                            <ArrowRight size={20} className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                            <ArrowRight size={20} className="text-foreground/60 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                         </div>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-foreground/60 mb-4">
                             {totalOtherSkills} soft skills across {otherSkills.length} categories including communication, leadership, problem solving, and more.
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -121,7 +121,7 @@ export default function Skills() {
                                 </span>
                             ))}
                             {otherSkills.length > 3 && (
-                                <span className="px-3 py-1 bg-gray-700 text-gray-400 rounded-full text-sm">
+                                <span className="px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">
                                     +{otherSkills.length - 3} more
                                 </span>
                             )}

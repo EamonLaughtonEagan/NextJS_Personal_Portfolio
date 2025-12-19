@@ -38,7 +38,7 @@ export default function Contact() {
     return (
         <div className="p-5">
             <AnimatedHeader fullText="Get in Touch" />
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-foreground/60 mb-12">
                 Feel free to reach out to me through any of the following channels. I'm always open to discussing new projects, creative ideas, or other opportunities.
             </p>
 
@@ -55,8 +55,8 @@ export default function Contact() {
                                 {contact.icon}
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-gray-400 text-sm mb-1">{contact.label}</h3>
-                                <p className="text-white text-lg font-medium group-hover:text-blue-400 transition-colors">
+                                <h3 className="text-foreground/60 text-sm mb-1">{contact.label}</h3>
+                                <p className="text-foreground text-lg font-medium group-hover:text-blue-400 transition-colors">
                                     {contact.value}
                                 </p>
                             </div>
@@ -66,8 +66,8 @@ export default function Contact() {
             </div>
 
             <Card className="mt-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Let's Collaborate!</h2>
-                <p className="text-gray-300 leading-relaxed">
+                <h2 className="text-2xl font-bold text-foreground mb-4">Let's Collaborate!</h2>
+                <p className="text-foreground/60 leading-relaxed">
                     Whether you have need of a developer for your next big project, want to brainstorm innovative ideas, or simply wish to connect and share knowledge, I'm here to help. Don't hesitate to reach out. I look forward to hearing from you!
                 </p>
             </Card>

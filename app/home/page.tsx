@@ -59,7 +59,7 @@ export default function Home() {
 
     return (
         <div className="p-5">
-            <h1 className="text-7xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            <h1 className="text-7xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {displayedText.split(' ').map((word, index) => (
                     <span
                         key={index}
@@ -68,15 +68,15 @@ export default function Home() {
                         {word}{' '}
                     </span>
                 ))}
-                <span className={`inline-block w-1 h-[1em] bg-white ${isComplete ? 'animate-blink' : ''}`}></span>
+                <span className={`inline-block w-1 h-[1em] bg-foreground ${isComplete ? 'animate-blink' : ''}`}></span>
             </h1>
             
             {/* Additional text that fades in */}
             <div className={`transition-all duration-1000 ${showAdditionalText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <p className="text-2xl text-gray-300 font-light mb-2">
+                <p className="text-2xl text-foreground/70 font-light mb-2">
                     Hi! I'm a Full-Stack Developer with a passion for creating creative yet functional web applications.
                 </p>
-                <p className="text-xl text-gray-400 mb-12">
+                <p className="text-xl text-foreground/60 mb-12">
                     Explore my experience, skills, projects, and more using the navigation on the left or the quick links below.
                 </p>
 
@@ -88,11 +88,11 @@ export default function Home() {
                                 <div className="flex items-start justify-between mb-3">
                                     <div className="flex items-center gap-3">
                                         {link.icon}
-                                        <h2 className="text-2xl font-bold text-white">{link.title}</h2>
+                                        <h2 className="text-2xl font-bold text-foreground">{link.title}</h2>
                                     </div>
-                                    <ArrowRight size={20} className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                                    <ArrowRight size={20} className="text-foreground/60 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                                 </div>
-                                <p className="text-gray-400">{link.description}</p>
+                                <p className="text-foreground/60">{link.description}</p>
                             </Card>
                         </Link>
                     ))}
@@ -101,12 +101,12 @@ export default function Home() {
                 {/* About Me Section with stagger */}
                 <div className={`transition-all duration-700 ${showAbout ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                     <Card className="mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-4">About Me</h2>
-                        <p className="text-gray-300 leading-relaxed mb-4">
+                        <h2 className="text-2xl font-bold text-foreground mb-4">About Me</h2>
+                        <p className="text-foreground leading-relaxed mb-4">
                             I'm a passionate software developer with over 10 years of experience in full-stack development. 
                             I specialize in building modern web applications using React, Next.js, TypeScript, and various backend technologies.
                         </p>
-                        <p className="text-gray-300 leading-relaxed mb-4">
+                        <p className="text-foreground/90 leading-relaxed mb-4">
                             Throughout my career, I've worked on diverse projects ranging from government applications to 
                             accessibility-focused solutions, always striving to deliver high-quality, maintainable code.
                         </p>

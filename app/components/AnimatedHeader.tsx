@@ -24,7 +24,7 @@ export const AnimatedHeader = ({
     const [showAdditionalText, setShowAdditionalText] = useState(false);
 
     return (
-        <h1 className="text-7xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-7xl font-extrabold text-foreground tracking-tight leading-tight">
                 {displayedText.split(' ').map((word, index) => (
                     <span
                         key={index}
@@ -33,7 +33,7 @@ export const AnimatedHeader = ({
                         {word}{' '}
                     </span>
                 ))}
-                <span className={`inline-block w-1 h-[1em] bg-white ${isComplete ? 'animate-blink' : ''}`}></span>
+                <span className={`inline-block w-1 h-[1em] bg-foreground ${isComplete ? 'animate-blink' : ''}`}></span>
             </h1>
     )
 }

@@ -25,11 +25,11 @@ export default function ThemeSwitcher() {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 hover:bg-gray-700 rounded-md transition-colors flex items-center gap-2"
+        className="p-2 hover:bg-cardHover rounded-md transition-colors flex items-center gap-2"
         aria-label="Change theme"
       >
-        <Palette size={20} className="text-gray-400" />
-        <span className="hidden sm:inline text-sm text-gray-400">Theme</span>
+        <Palette size={20} className="text-foreground/60" />
+        <span className="hidden sm:inline text-sm text-foreground/60">Theme</span>
       </button>
 
       {isOpen && (
@@ -41,7 +41,7 @@ export default function ThemeSwitcher() {
                 setTheme(key as ThemeName)
                 setIsOpen(false)
               }}
-              className="w-full px-4 py-2 text-left hover:bg-gray-700 transition-colors flex items-center justify-between gap-3 first:rounded-t-md last:rounded-b-md"
+              className="w-full px-4 py-2 text-left hover:bg-cardHover transition-colors flex items-center justify-between gap-3 first:rounded-t-md last:rounded-b-md"
             >
               <span className="text-sm text-foreground">{theme.name}</span>
               <div className="flex items-center gap-2">

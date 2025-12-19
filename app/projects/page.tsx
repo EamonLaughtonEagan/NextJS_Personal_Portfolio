@@ -12,7 +12,7 @@ const Projects = () => {
     return (
         <div className="p-5">
             <AnimatedHeader fullText="My Projects" speed={50} />
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-foreground/60 mb-12">
                 Explore my collection of personal and professional projects. 
                 Each one represents a unique challenge and learning experience.
             </p>
@@ -25,8 +25,8 @@ const Projects = () => {
                             <FolderOpen size={24} className="text-blue-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{projects.length}</h3>
-                            <p className="text-gray-400 text-sm">Total Projects</p>
+                            <h3 className="text-3xl font-bold text-foreground">{projects.length}</h3>
+                            <p className="text-foreground/60 text-sm">Total Projects</p>
                         </div>
                     </div>
                 </Card>
@@ -37,8 +37,8 @@ const Projects = () => {
                             <Clock size={24} className="text-yellow-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{ongoingProjects.length}</h3>
-                            <p className="text-gray-400 text-sm">In Progress</p>
+                            <h3 className="text-3xl font-bold text-foreground">{ongoingProjects.length}</h3>
+                            <p className="text-foreground/60 text-sm">In Progress</p>
                         </div>
                     </div>
                 </Card>
@@ -49,8 +49,8 @@ const Projects = () => {
                             <CheckCircle2 size={24} className="text-green-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{completedProjects.length}</h3>
-                            <p className="text-gray-400 text-sm">Completed</p>
+                            <h3 className="text-3xl font-bold text-foreground">{completedProjects.length}</h3>
+                            <p className="text-foreground/60 text-sm">Completed</p>
                         </div>
                     </div>
                 </Card>
@@ -64,11 +64,11 @@ const Projects = () => {
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
                                 <Clock size={24} className="text-yellow-400" />
-                                <h2 className="text-2xl font-bold text-white">Ongoing Projects</h2>
+                                <h2 className="text-2xl font-bold text-foreground">Ongoing Projects</h2>
                             </div>
-                            <ArrowRight size={20} className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                            <ArrowRight size={20} className="text-foreground/60 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                         </div>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-foreground/60 mb-4">
                             Currently working on {ongoingProjects.length} project{ongoingProjects.length !== 1 ? 's' : ''}. 
                             These are actively being developed and improved.
                         </p>
@@ -79,7 +79,7 @@ const Projects = () => {
                                 </span>
                             ))}
                             {ongoingProjects.length > 3 && (
-                                <span className="px-3 py-1 bg-gray-700 text-gray-400 rounded-full text-sm">
+                                <span className="px-3 py-1 bg-gray-700 text-foreground/60 rounded-full text-sm">
                                     +{ongoingProjects.length - 3} more
                                 </span>
                             )}
@@ -93,11 +93,11 @@ const Projects = () => {
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
                                 <CheckCircle2 size={24} className="text-green-400" />
-                                <h2 className="text-2xl font-bold text-white">Completed Projects</h2>
+                                <h2 className="text-2xl font-bold text-foreground">Completed Projects</h2>
                             </div>
-                            <ArrowRight size={20} className="text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                            <ArrowRight size={20} className="text-foreground/60 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                         </div>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-foreground/60 mb-4">
                             View {completedProjects.length} finished project{completedProjects.length !== 1 ? 's' : ''}. 
                             These have been successfully delivered and deployed.
                         </p>
@@ -108,7 +108,7 @@ const Projects = () => {
                                 </span>
                             ))}
                             {completedProjects.length > 3 && (
-                                <span className="px-3 py-1 bg-gray-700 text-gray-400 rounded-full text-sm">
+                                <span className="px-3 py-1 bg-green-500/10 text-foreground/60 rounded-full text-sm">
                                     +{completedProjects.length - 3} more
                                 </span>
                             )}

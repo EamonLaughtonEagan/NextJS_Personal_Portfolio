@@ -11,7 +11,7 @@ export default function OtherSkills() {
     return (
         <div className="p-5">
             <AnimatedHeader fullText="Other" speed={50} />
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-foreground/60 mb-12">
                 An overview of my soft skills and interpersonal abilities that complement my technical expertise.
             </p>
 
@@ -23,8 +23,8 @@ export default function OtherSkills() {
                             <Award size={24} className="text-blue-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{totalSkills}+</h3>
-                            <p className="text-gray-400 text-sm">Total Skills</p>
+                            <h3 className="text-3xl font-bold text-foreground">{totalSkills}+</h3>
+                            <p className="text-foreground/60 text-sm">Total Skills</p>
                         </div>
                     </div>
                 </Card>
@@ -35,8 +35,8 @@ export default function OtherSkills() {
                             <Users size={24} className="text-purple-400" />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold text-white">{otherSkills.length}</h3>
-                            <p className="text-gray-400 text-sm">Skill Categories</p>
+                            <h3 className="text-3xl font-bold text-foreground">{otherSkills.length}</h3>
+                            <p className="text-foreground/60 text-sm">Skill Categories</p>
                         </div>
                     </div>
                 </Card>
@@ -49,13 +49,13 @@ export default function OtherSkills() {
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
                                 {category.icon}
-                                <h2 className="text-2xl font-bold text-white">{category.title}</h2>
+                                <h2 className="text-2xl font-bold text-foreground">{category.title}</h2>
                             </div>
-                            <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm font-medium">
+                            <span className="px-3 py-1 bg-gray-700 text-foreground/60 rounded-full text-sm font-medium">
                                 {category.skills.length}
                             </span>
                         </div>
-                        <p className="text-gray-400 mb-4">
+                        <p className="text-foreground/60 mb-4">
                             Proficient in {category.skills.length} skills related to {category.title.toLowerCase()}.
                         </p>
                         <div className="flex flex-wrap gap-2">

@@ -77,9 +77,9 @@ export default function About() {
                     
                     {/* Profile Info */}
                     <div className="flex-1 text-center md:text-left">
-                        <h2 className="text-3xl font-bold text-white mb-2">Eamon Laughton-Eagan</h2>
+                        <h2 className="text-3xl font-bold text-foreground mb-2">Eamon Laughton-Eagan</h2>
                         <p className="text-xl text-blue-400 mb-4">Software Developer</p>
-                        <p className="text-gray-300 leading-relaxed mb-4">
+                        <p className="text-foreground leading-relaxed mb-4">
                             Hi! I'm a passionate software developer with over {calculateYearsOfExperience({ experiences })} years of experience in creating 
                             innovative web applications. I specialize in modern JavaScript frameworks and love 
                             turning complex problems into simple, beautiful, and intuitive designs.
@@ -96,11 +96,11 @@ export default function About() {
                                 {info.icon}
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-gray-400 text-sm mb-1">{info.label}</h3>
-                                <p className="text-white text-lg font-medium mb-2">
+                                <h3 className="text-foreground/60 text-sm mb-1">{info.label}</h3>
+                                <p className="text-foreground text-lg font-medium mb-2">
                                     {info.value}
                                 </p>
-                                <p className="text-gray-400 text-sm leading-relaxed">
+                                <p className="text-foreground/60 text-sm leading-relaxed">
                                     {info.description}
                                 </p>
                             </div>
@@ -110,14 +110,14 @@ export default function About() {
             </div>
 
             <Card className="mt-8">
-                <h2 className="text-2xl font-bold text-white mb-4">What Sets Me Apart</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-4">What Sets Me Apart</h2>
                 <div className="space-y-4">
                     {qualities.map((quality, index) => (
                         <div key={index} className="flex items-center gap-3">
                             <div className="text-blue-400">
                                 {quality.icon}
                             </div>
-                            <p className="text-gray-300">{quality.text}</p>
+                            <p className="text-foreground/60">{quality.text}</p>
                         </div>
                     ))}
                 </div>
