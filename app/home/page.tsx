@@ -103,7 +103,7 @@ export default function Home() {
                     <Card className="mb-8">
                         <h2 className="text-2xl font-bold text-foreground mb-4">About Me</h2>
                         <p className="text-foreground leading-relaxed mb-4">
-                            I'm a passionate software developer with over 10 years of experience in full-stack development. 
+                            I'm a passionate software developer with over {calculateYearsOfExperience({ experiences })} years of experience in full-stack development. 
                             I specialize in building modern web applications using React, Next.js, TypeScript, and various backend technologies.
                         </p>
                         <p className="text-foreground/90 leading-relaxed mb-4">
