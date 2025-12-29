@@ -74,7 +74,7 @@ export default function Home() {
             {/* Additional text that fades in */}
             <div className={`transition-all duration-1000 ${showAdditionalText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <p className="text-2xl text-foreground/70 font-light mb-2">
-                    Hi! I'm a Full-Stack Developer with a passion for creating creative yet functional web applications.
+                    Hi! I'm an aspiring Full-Stack Developer with a passion for creating creative and functional web applications.
                 </p>
                 <p className="text-xl text-foreground/60 mb-12">
                     Explore my experience, skills, projects, and more using the navigation on the left or the quick links below.

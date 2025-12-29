@@ -80,9 +80,8 @@ export default function About() {
                         <h2 className="text-3xl font-bold text-foreground mb-2">Eamon Laughton-Eagan</h2>
                         <p className="text-xl text-blue-400 mb-4">Software Developer</p>
                         <p className="text-foreground leading-relaxed mb-4">
-                            Hi! I'm a passionate software developer with over {calculateYearsOfExperience({ experiences })} years of experience in creating 
-                            innovative web applications. I specialize in modern JavaScript frameworks and love 
-                            turning complex problems into simple, beautiful, and intuitive designs.
+                            Hi! I'm a software developer with over {calculateYearsOfExperience({ experiences })} years of experience in building 
+                            web applications. I specialize in modern JavaScript frameworks such as React and Next.js, and I have a strong background in both frontend and backend development.
                         </p>
                     </div>
                 </div>
